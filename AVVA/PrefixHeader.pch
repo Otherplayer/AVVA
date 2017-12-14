@@ -1,0 +1,54 @@
+//
+//  PrefixHeader.pch
+//  AVVA
+//
+//  Created by __无邪_ on 2017/11/30.
+//  Copyright © 2017年 __无邪_. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#import <ViewUtils.h>
+#import <UIView+Toast.h>
+#import "UIView+Categories.h"
+#import "UIColor+Categories.h"
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+// 操作系统版本号
+#define IOS_VERSION ([[[UIDevice currentDevice] systemVersion] floatValue])
+
+// 是否横竖屏
+// 用户界面横屏了才会返回YES
+#define IS_LANDSCAPE UIInterfaceOrientationIsLandscape([[UIApplication sharedApplication] statusBarOrientation])
+// 无论支不支持横屏，只要设备横屏了，就会返回YES
+#define IS_DEVICE_LANDSCAPE UIDeviceOrientationIsLandscape([[UIDevice currentDevice] orientation])
+
+
+// 屏幕宽度，会根据横竖屏的变化而变化
+#define SCREEN_WIDTH (IOS_VERSION >= 8.0 ? [[UIScreen mainScreen] bounds].size.width : (IS_LANDSCAPE ? [[UIScreen mainScreen] bounds].size.height : [[UIScreen mainScreen] bounds].size.width))
+
+// 屏幕宽度，跟横竖屏无关
+#define DEVICE_WIDTH (IOS_VERSION >= 8.0 ? (IS_LANDSCAPE ? [[UIScreen mainScreen] bounds].size.height : [[UIScreen mainScreen] bounds].size.width) : [[UIScreen mainScreen] bounds].size.width)
+
+// 屏幕高度，会根据横竖屏的变化而变化
+#define SCREEN_HEIGHT (IOS_VERSION >= 8.0 ? [[UIScreen mainScreen] bounds].size.height : (IS_LANDSCAPE ? [[UIScreen mainScreen] bounds].size.width : [[UIScreen mainScreen] bounds].size.height))
+
+// 屏幕高度，跟横竖屏无关
+#define DEVICE_HEIGHT (IOS_VERSION >= 8.0 ? (IS_LANDSCAPE ? [[UIScreen mainScreen] bounds].size.width : [[UIScreen mainScreen] bounds].size.height) : [[UIScreen mainScreen] bounds].size.height)
+
+// 状态栏高度(来电等情况下，状态栏高度会发生变化，所以应该实时计算)
+#define StatusBarHeight (IOS_VERSION >= 8.0 ? ([[UIApplication sharedApplication] statusBarFrame].size.height) : (IS_LANDSCAPE ? ([[UIApplication sharedApplication] statusBarFrame].size.width) : ([[UIApplication sharedApplication] statusBarFrame].size.height)))
+
+// navigationBar相关frame
+#define NavigationBarHeight (IS_LANDSCAPE ? 32 : 44)
+
+#pragma mark - 动画
+
+#define MMUIViewAnimationOptionsCurveOut (7<<16)
+#define MMUIViewAnimationOptionsCurveIn (8<<16)
+
+
+#endif /* PrefixHeader_pch */
