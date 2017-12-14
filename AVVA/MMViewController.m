@@ -144,6 +144,11 @@ static NSString *Identifier = @"VideoIdentifier";
     
     self.datas = NSMutableArray.alloc.init;
     self.tableView.tableFooterView = UIView.alloc.init;
+    
+    int64_t diskSpace = [UIDevice currentDevice].diskSpace;
+    int64_t diskSpaceFree = [UIDevice currentDevice].diskSpaceFree;
+    int64_t diskSpaceUsed = [UIDevice currentDevice].diskSpaceUsed;
+    NSLog(@"%@    %@      %@",@(diskSpace),@(diskSpaceFree),@(diskSpaceUsed));
 }
 
 #pragma mark - Navigation

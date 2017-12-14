@@ -7,6 +7,7 @@ target "AVVA" do
     pod 'ViewUtils'
     pod 'Toast'
     pod 'pop'
+    pod 'YYKit'
 
 end
 
