@@ -311,7 +311,7 @@
     [self.playerHeaderView setBackgroundColor:[UIColor gradientFromColor:darkColor toColor:lightColor height:self.playerHeaderView.height]];
     [self.playerFooterView setBackgroundColor:[UIColor gradientFromColor:lightColor toColor:darkColor height:self.playerFooterView.height]];
     
-    [self.btnPlayer setBackgroundImage:[UIColor imageWithColor:[UIColor colorWithWhite:1 alpha:0.85]] forState:UIControlStateHighlighted];
+    [self.btnPlayer setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithWhite:1 alpha:0.85]] forState:UIControlStateHighlighted];
     [self.btnPlayer.layer setCornerRadius:self.btnPlayer.width/2.0];
     [self.btnPlayer.layer setMasksToBounds:YES];
 }

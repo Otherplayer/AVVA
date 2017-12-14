@@ -116,7 +116,8 @@
 
 - (void)saveImage2Album:(NSString *)path completionHandler:(void(^)(BOOL success, NSError *error))completionHandler{
     [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
-        PHAssetChangeRequest *req = [PHAssetChangeRequest creationRequestForAssetFromImageAtFileURL:[NSURL URLWithString:path]];
+//        PHAssetChangeRequest *req =
+        [PHAssetChangeRequest creationRequestForAssetFromImageAtFileURL:[NSURL URLWithString:path]];
     } completionHandler:completionHandler];
 }
 

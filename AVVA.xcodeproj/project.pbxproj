@@ -34,6 +34,7 @@
 		63E8C83F1FE12B08000D76D2 /* VBFPopFlatButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E8C83C1FE12B08000D76D2 /* VBFPopFlatButton.m */; };
 		63E8C8401FE12B08000D76D2 /* VBFDoubleSegment.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E8C83E1FE12B08000D76D2 /* VBFDoubleSegment.m */; };
 		63E8C8431FE12D98000D76D2 /* MPlayerButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E8C8421FE12D98000D76D2 /* MPlayerButton.m */; };
+		63E8C8461FE24C4E000D76D2 /* UIImage+Categories.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E8C8451FE24C4E000D76D2 /* UIImage+Categories.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -91,6 +92,8 @@
 		63E8C83E1FE12B08000D76D2 /* VBFDoubleSegment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBFDoubleSegment.m; sourceTree = "<group>"; };
 		63E8C8411FE12D98000D76D2 /* MPlayerButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MPlayerButton.h; sourceTree = "<group>"; };
 		63E8C8421FE12D98000D76D2 /* MPlayerButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MPlayerButton.m; sourceTree = "<group>"; };
+		63E8C8441FE24C4E000D76D2 /* UIImage+Categories.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+Categories.h"; sourceTree = "<group>"; };
+		63E8C8451FE24C4E000D76D2 /* UIImage+Categories.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Categories.m"; sourceTree = "<group>"; };
 		71ED00F5A72B74CE79AAD08A /* libPods-AVVA.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AVVA.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7AEBEE9C3EBF80B3F12F8F0 /* Pods-AVVA.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AVVA.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AVVA/Pods-AVVA.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -236,6 +239,8 @@
 				636E846C1FD109D50076075F /* UIView+Categories.m */,
 				631E22741FDE31C600F34D9D /* UIColor+Categories.h */,
 				631E22751FDE31C600F34D9D /* UIColor+Categories.m */,
+				63E8C8441FE24C4E000D76D2 /* UIImage+Categories.h */,
+				63E8C8451FE24C4E000D76D2 /* UIImage+Categories.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -383,6 +388,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				636E846D1FD109D50076075F /* UIView+Categories.m in Sources */,
+				63E8C8461FE24C4E000D76D2 /* UIImage+Categories.m in Sources */,
 				63E8C8431FE12D98000D76D2 /* MPlayerButton.m in Sources */,
 				63A197F21FCE8406007D97B1 /* MMViewController.m in Sources */,
 				63E8C83F1FE12B08000D76D2 /* VBFPopFlatButton.m in Sources */,
@@ -541,7 +547,7 @@
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/AVVA/PrefixHeader.pch";
 				INFOPLIST_FILE = AVVA/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fqah.AVVA;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -564,7 +570,7 @@
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/AVVA/PrefixHeader.pch";
 				INFOPLIST_FILE = AVVA/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fqah.AVVA;
 				PRODUCT_NAME = "$(TARGET_NAME)";

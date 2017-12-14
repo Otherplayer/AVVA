@@ -12,7 +12,6 @@
 
 + (UIColor *)colorFromHexRGB: (NSString *)color;
 + (UIColor *)colorFromHexRGB: (NSString *)color alpha:(CGFloat)alpha;
-+ (UIImage *)imageWithColor:(UIColor *)color;
 + (UIColor *)RandomColor;
 
 //渐变左右方向

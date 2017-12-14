@@ -31,9 +31,11 @@ static NSString *Identifier = @"VideoIdentifier";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self configuration];
     // Do any additional setup after loading the view, typically from a nib.
     self.datas = [[NSMutableArray alloc] init];
     self.tableView.tableFooterView = [UIView.alloc init];
+    
     
     [self fetchLocalDatas];
     
@@ -111,7 +113,8 @@ static NSString *Identifier = @"VideoIdentifier";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:Identifier forIndexPath:indexPath];
     MMModel *model = self.datas[indexPath.row];
     cell.imageView.image = model.thumbImage;
-    cell.textLabel.textColor = [UIColor lightGrayColor];
+    cell.textLabel.textColor = [UIColor blackColor];
+    cell.textLabel.numberOfLines = 0;
     cell.textLabel.text = model.name;
     return cell;
 }
@@ -124,12 +127,26 @@ static NSString *Identifier = @"VideoIdentifier";
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         MMModel *model = self.datas[indexPath.row];
-        [FileHelper deleteFile:model.path];
         [self.datas removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+        [self.tableView reloadData];
+        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+            [FileHelper deleteFile:model.path];
+        });
     }
 }
-#pragma mark - 
+#pragma mark -
+
+- (void)configuration {
+    UIColor *bgColor = [UIColor gradientFromColor:[UIColor orangeColor] toColor:[UIColor whiteColor] height:self.view.height];
+    self.view.backgroundColor = bgColor;
+    // 设置navbar透明
+    self.navigationController.navigationBar.translucent = YES;
+    self.navigationController.navigationBar.barTintColor = nil;
+    self.navigationController.navigationBar.backgroundColor = nil;
+    self.navigationController.navigationBar.shadowImage = [UIImage imageWithColor:[UIColor orangeColor]];//线色
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+}
 
 #pragma mark - Navigation
 
