@@ -72,7 +72,7 @@
         [UIView animateWithDuration:1.2f delay:.5f options:MMUIViewAnimationOptionsCurveOut animations:^{
             //launchScreenView.layer.transform = CATransform3DScale(CATransform3DIdentity, 1.5f, 1.5f, 1.0f);
             launchScreenView.layer.transform = CATransform3DMakeTranslation(0, -window.height + StatusBarHeight + NavigationBarHeight, 0);
-            
+            launchScreenView.alpha = 0.35;
         } completion:^(BOOL finished) {
             [UIView animateWithDuration:0.25 animations:^{
                 launchScreenView.alpha = 0;

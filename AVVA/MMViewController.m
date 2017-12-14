@@ -139,7 +139,7 @@ static NSString *Identifier = @"VideoIdentifier";
     self.navigationController.navigationBar.translucent = YES;
     self.navigationController.navigationBar.barTintColor = nil;
     self.navigationController.navigationBar.backgroundColor = nil;
-    self.navigationController.navigationBar.shadowImage = [UIImage imageWithColor:[UIColor orangeColor]];//线色
+    self.navigationController.navigationBar.shadowImage = [UIImage imageWithColor:[UIColor clearColor]];//线色
     [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
     
     self.datas = NSMutableArray.alloc.init;
