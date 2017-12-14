@@ -31,27 +31,23 @@ static NSString *Identifier = @"VideoIdentifier";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self configuration];
+    
     // Do any additional setup after loading the view, typically from a nib.
-    self.datas = [[NSMutableArray alloc] init];
-    self.tableView.tableFooterView = [UIView.alloc init];
     
-    
+    [self configuration];
     [self fetchLocalDatas];
     
-    //流媒体视频
-//    @[@"香港卫视",@"香港财经",@"韩国新唐人亚太",@"韩国KCTV-HD",@"韩国朝鲜日报",@"泰国中文台",@"美国中文电视",@"亚洲联合卫视",@"深圳"];
-//    NSArray *items = @[@"rtmp://live.hkstv.hk.lxdns.com/live/hks",
-//                       @"rtmp://202.69.69.180:443/webcast/bshdlive-pc",
-//                       @"rtmp://123.108.164.71/etv2/phd926",
-//                       @"rtmp://122.202.129.136:1935/live/ch5",
-//                       @"rtmp://live.chosun.gscdn.com/live/tvchosun1.stream",
-//                       @"rtmp://110.164.48.237:1935/tcctv_ch002/tcctv02.stream_live1",
-//                       @"rtmp://media3.sinovision.net:1935/live/livestream",
-//                       @"rtmp://tv.unbtv.tv/app_2/ls_1.stream"];
-    
-//    可直接播放
-    
+    /** 流媒体视频 可直接播放
+    @[@"香港卫视",@"香港财经",@"韩国新唐人亚太",@"韩国KCTV-HD",@"韩国朝鲜日报",@"泰国中文台",@"美国中文电视",@"亚洲联合卫视",@"深圳"];
+     NSArray *items = @[@"rtmp://live.hkstv.hk.lxdns.com/live/hks",
+     @"rtmp://202.69.69.180:443/webcast/bshdlive-pc",
+     @"rtmp://123.108.164.71/etv2/phd926",
+     @"rtmp://122.202.129.136:1935/live/ch5",
+     @"rtmp://live.chosun.gscdn.com/live/tvchosun1.stream",
+     @"rtmp://110.164.48.237:1935/tcctv_ch002/tcctv02.stream_live1",
+     @"rtmp://media3.sinovision.net:1935/live/livestream",
+     @"rtmp://tv.unbtv.tv/app_2/ls_1.stream"];
+    **/
     
 }
 
@@ -146,6 +142,9 @@ static NSString *Identifier = @"VideoIdentifier";
     self.navigationController.navigationBar.backgroundColor = nil;
     self.navigationController.navigationBar.shadowImage = [UIImage imageWithColor:[UIColor orangeColor]];//线色
     [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+    
+    self.datas = NSMutableArray.alloc.init;
+    self.tableView.tableFooterView = UIView.alloc.init;
 }
 
 #pragma mark - Navigation
