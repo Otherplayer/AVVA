@@ -17,7 +17,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    
+    [self startLaunchingAnimation];
     return YES;
 }
 
@@ -52,5 +52,39 @@
     [[UIApplication sharedApplication] setIdleTimerDisabled:NO];
 }
 
+#pragma mark -
+
+- (void)startLaunchingAnimation {
+    
+    double delayInSeconds = .15f;
+    dispatch_time_t delayInNanoSeconds = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+    // 得到全局队列
+    dispatch_queue_t concurrentQueue = dispatch_get_main_queue();
+    // 延期执行
+    dispatch_after(delayInNanoSeconds, concurrentQueue, ^(void){
+        UIViewController *launchScreen = [[UIStoryboard storyboardWithName:@"LaunchScreen" bundle:nil] instantiateViewControllerWithIdentifier:@"LaunchScreen"];
+        UIView *launchScreenView = launchScreen.view;
+        
+        UIWindow *window = [[[UIApplication sharedApplication] delegate] window];
+        launchScreenView.frame = window.bounds;
+        [window addSubview:launchScreenView];
+        
+        [UIView animateWithDuration:1.2f delay:.5f options:MMUIViewAnimationOptionsCurveOut animations:^{
+            //launchScreenView.layer.transform = CATransform3DScale(CATransform3DIdentity, 1.5f, 1.5f, 1.0f);
+            launchScreenView.layer.transform = CATransform3DMakeTranslation(0, -window.height + StatusBarHeight + NavigationBarHeight, 0);
+            
+        } completion:^(BOOL finished) {
+            [UIView animateWithDuration:0.25 animations:^{
+                launchScreenView.alpha = 0;
+            } completion:^(BOOL finished) {
+                [launchScreenView removeFromSuperview];
+            }];
+            
+        }];
+    });
+    
+    
+    
+}
 
 @end

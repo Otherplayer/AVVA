@@ -50,10 +50,6 @@ static NSString *Identifier = @"VideoIdentifier";
     **/
     
 }
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    [self startLaunchingAnimation];
-}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -137,7 +133,7 @@ static NSString *Identifier = @"VideoIdentifier";
 #pragma mark -
 
 - (void)configuration {
-    UIColor *bgColor = [UIColor gradientFromColor:[UIColor orangeColor] toColor:[UIColor whiteColor] height:self.view.height];
+    UIColor *bgColor = [UIColor gradientFromColor:[UIColor blackColor] toColor:[UIColor whiteColor] height:self.view.height];
     self.view.backgroundColor = bgColor;
     // 设置navbar透明
     self.navigationController.navigationBar.translucent = YES;
@@ -166,29 +162,7 @@ static NSString *Identifier = @"VideoIdentifier";
     
 }
 
-#pragma mark -
 
-- (void)startLaunchingAnimation {
-    
-//    UIViewController *launchScreen = [[UIStoryboard storyboardWithName:@"LaunchScreen" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"LaunchScreen"];
-//    UIView *launchScreenView = launchScreen.view;
-    
-    UIWindow *window = [[[UIApplication sharedApplication] delegate] window];
-    UIImageView *launchScreenView = [[UIImageView alloc] init];
-    launchScreenView.image = [UIImage imageNamed:@"IMG_0061.JPG"];
-    launchScreenView.contentMode = UIViewContentModeScaleAspectFill;
-    launchScreenView.frame = window.bounds;
-    launchScreenView.backgroundColor = [UIColor orangeColor];
-    [window addSubview:launchScreenView];
-    
-    [UIView animateWithDuration:.85f delay:0.5f options:MMUIViewAnimationOptionsCurveOut animations:^{
-        launchScreenView.alpha = 0;
-        launchScreenView.layer.transform = CATransform3DScale(CATransform3DIdentity, 1.5f, 1.5f, 1.0f);
-    } completion:^(BOOL finished) {
-        [launchScreenView removeFromSuperview];
-    }];
-    
-}
 
 
 
