@@ -50,8 +50,10 @@ static NSString *Identifier = @"VideoIdentifier";
     **/
     
 }
-
-
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self startLaunchingAnimation];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -87,6 +89,7 @@ static NSString *Identifier = @"VideoIdentifier";
         model.path = path;
         model.fileSize = fileSize;
         model.thumbImage = [FileHelper getThumbImage:path];
+        [self.datas addObject:model];
         [self.datas addObject:model];
     }
     
@@ -163,6 +166,29 @@ static NSString *Identifier = @"VideoIdentifier";
     
 }
 
+#pragma mark -
+
+- (void)startLaunchingAnimation {
+    
+//    UIViewController *launchScreen = [[UIStoryboard storyboardWithName:@"LaunchScreen" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"LaunchScreen"];
+//    UIView *launchScreenView = launchScreen.view;
+    
+    UIWindow *window = [[[UIApplication sharedApplication] delegate] window];
+    UIImageView *launchScreenView = [[UIImageView alloc] init];
+    launchScreenView.image = [UIImage imageNamed:@"IMG_0061.JPG"];
+    launchScreenView.contentMode = UIViewContentModeScaleAspectFill;
+    launchScreenView.frame = window.bounds;
+    launchScreenView.backgroundColor = [UIColor orangeColor];
+    [window addSubview:launchScreenView];
+    
+    [UIView animateWithDuration:.85f delay:0.5f options:MMUIViewAnimationOptionsCurveOut animations:^{
+        launchScreenView.alpha = 0;
+        launchScreenView.layer.transform = CATransform3DScale(CATransform3DIdentity, 1.5f, 1.5f, 1.0f);
+    } completion:^(BOOL finished) {
+        [launchScreenView removeFromSuperview];
+    }];
+    
+}
 
 
 

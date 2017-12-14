@@ -17,6 +17,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
     return YES;
 }
 
@@ -49,34 +50,6 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     [[UIApplication sharedApplication] setIdleTimerDisabled:NO];
-}
-
-#pragma mark -
-
-- (void)startLaunchingAnimation {
-    UIWindow *window = [[[UIApplication sharedApplication] delegate] window];
-    UIView *launchScreenView = [[UIView alloc] init];
-    launchScreenView.frame = window.bounds;
-    launchScreenView.backgroundColor = [UIColor cyanColor];
-    [window addSubview:launchScreenView];
-    
-    double delayInSeconds = .05f;
-    dispatch_time_t delayInNanoSeconds = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
-    // 得到全局队列
-    dispatch_queue_t concurrentQueue = dispatch_get_main_queue();
-    // 延期执行
-    dispatch_after(delayInNanoSeconds, concurrentQueue, ^(void){
-        [UIView animateWithDuration:.15 delay:0.9 options:MMUIViewAnimationOptionsCurveOut animations:^{
-            launchScreenView.height = NavigationBarHeight + StatusBarHeight;
-            launchScreenView.backgroundColor = [UIColor cyanColor];
-        } completion:nil];
-        [UIView animateWithDuration:1.2 delay:0.9 options:UIViewAnimationOptionCurveEaseOut animations:^{
-            launchScreenView.alpha = 0;
-        } completion:^(BOOL finished) {
-            [launchScreenView removeFromSuperview];
-        }];
-    });
-    
 }
 
 
